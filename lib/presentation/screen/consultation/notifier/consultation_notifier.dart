@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reachout/di_setup.dart';
 import 'package:reachout/domain/usecase/consultation/get_consultation_service_use_case.dart';
 import 'package:reachout/presentation/screen/consultation/state/consultation_ui_state.dart';
-import 'package:reachout/presentation/util/logger.dart';
 
 class ConsultationNotifier extends StateNotifier<ConsultationUiState> {
   ConsultationNotifier({
@@ -14,7 +13,6 @@ class ConsultationNotifier extends StateNotifier<ConsultationUiState> {
   String? searchTerm;
 
   Future<void> fetchConsultationData({required String? key}) async {
-    logger.d('fetchConsultationData called $key');
     state = const ConsultationUiState.loading();
 
     final useCase = getIt.get<GetConsultationServiceUseCase>();

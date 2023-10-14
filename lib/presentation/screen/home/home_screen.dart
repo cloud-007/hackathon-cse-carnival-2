@@ -15,21 +15,24 @@ class HomeScreen extends ConsumerStatefulWidget {
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: UserInfo(),
-            ),
-            HomeCarousel(),
-            HomeSearch(),
-            SizedBox(height: 16.0),
-            SectionView(),
-          ],
+        child: Container(
+          color: Colors.grey.shade100,
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: UserInfo(),
+              ),
+              HomeCarousel(),
+              HomeSearch(),
+              SizedBox(height: 16.0),
+              SectionView(),
+            ],
+          ),
         ),
       ),
     );

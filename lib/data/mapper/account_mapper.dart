@@ -11,7 +11,7 @@ extension ProfileResponseMapper on ProfileResponse {
       address: address,
       institution: institution,
       occupation: occupation,
-      graduationYear: graduationYear,
+      isConsultant: isConsultant,
     );
   }
 }

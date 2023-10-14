@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:reachout/data/datasource/remote/api/account_api.dart';
 import 'package:reachout/data/datasource/remote/api/account_api_impl.dart';
+import 'package:reachout/data/datasource/remote/api/chat_api.dart';
+import 'package:reachout/data/datasource/remote/api/chat_api_impl.dart';
 import 'package:reachout/data/datasource/remote/api/consultation_api.dart';
 import 'package:reachout/data/datasource/remote/api/consultation_api_impl.dart';
 import 'package:reachout/data/datasource/remote/util/api_client.dart';
@@ -10,16 +12,21 @@ import 'package:reachout/data/datasource/source/account_local_data_source.dart';
 import 'package:reachout/data/datasource/source/account_local_data_source_impl.dart';
 import 'package:reachout/data/datasource/source/account_remote_data_source.dart';
 import 'package:reachout/data/datasource/source/account_remote_data_source_impl.dart';
+import 'package:reachout/data/datasource/source/chat_remote_data_source.dart';
+import 'package:reachout/data/datasource/source/chat_remote_data_source_impl.dart';
 import 'package:reachout/data/datasource/source/consultation_data_remote_data_source.dart';
 import 'package:reachout/data/datasource/source/consultation_remote_data_source_impl.dart';
 import 'package:reachout/data/repository/account_repository_impl.dart';
+import 'package:reachout/data/repository/chat_repo_impl.dart';
 import 'package:reachout/data/repository/consultation_repository_impl.dart';
 import 'package:reachout/domain/repository/account_repository.dart';
+import 'package:reachout/domain/repository/chat_repository.dart';
 import 'package:reachout/domain/repository/consultation_repository.dart';
 import 'package:reachout/domain/usecase/account/check_is_logged_in_use_case.dart';
 import 'package:reachout/domain/usecase/account/get_user_info_use_case.dart';
 import 'package:reachout/domain/usecase/account/google_sign_in_use_case.dart';
 import 'package:reachout/domain/usecase/account/sign_out_use_case.dart';
+import 'package:reachout/domain/usecase/chat/fetch_chat_list_use_case.dart';
 import 'package:reachout/domain/usecase/consultation/get_consultation_service_use_case.dart';
 import 'package:reachout/domain/usecase/consultation/get_featured_section_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -50,6 +57,10 @@ Future<void> setup() async {
   getIt.registerLazySingleton<ConsultationRemoteDataSource>(
     () => ConsultationRemoteDataSourceImpl(consultationApi: getIt()),
   );
+
+  getIt.registerLazySingleton<ChatRemoteDataSource>(
+    () => ChatRemoteDataSourceImpl(chatApi: getIt()),
+  );
   // endregion
   // region:: repo
   getIt.registerLazySingleton<AccountRepository>(
@@ -62,6 +73,12 @@ Future<void> setup() async {
   getIt.registerLazySingleton<ConsultationRepository>(
     () => ConsultationRepositoryImpl(
       consultationRemoteDataSource: getIt(),
+    ),
+  );
+
+  getIt.registerLazySingleton<ChatRepository>(
+    () => ChatRepositoryImpl(
+      chatRemoteDataSource: getIt(),
     ),
   );
   // endregion
@@ -89,6 +106,10 @@ Future<void> setup() async {
 
   getIt.registerLazySingleton(
     () => GetConsultationServiceUseCase(consultationRepository: getIt()),
+  );
+
+  getIt.registerLazySingleton(
+    () => FetchChatListUseCase(chatRepository: getIt()),
   );
   //endregion
   //region:: api
@@ -124,6 +145,10 @@ Future<void> setup() async {
 
   getIt.registerLazySingleton<ConsultationApi>(
     () => ConsultationApiImpl(client: getIt()),
+  );
+
+  getIt.registerLazySingleton<ChatApi>(
+    () => ChatApiImpl(client: getIt()),
   );
 // endregion
 }

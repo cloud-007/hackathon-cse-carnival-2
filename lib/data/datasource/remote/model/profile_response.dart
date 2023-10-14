@@ -11,7 +11,7 @@ class ProfileResponse with _$ProfileResponse {
     @JsonKey(name: 'address') required String? address,
     @JsonKey(name: 'institution') required String? institution,
     @JsonKey(name: 'occupation') required String? occupation,
-    @JsonKey(name: 'graduation_year') required int? graduationYear,
+    @JsonKey(name: 'consultant') required bool isConsultant,
   }) = _ProfileResponse;
 
   factory ProfileResponse.fromJson(Map<String, dynamic> json) =>

@@ -4,7 +4,7 @@ class Profile {
   final String? address;
   final String? institution;
   final String? occupation;
-  final int? graduationYear;
+  final bool isConsultant;
 
   Profile({
     required this.id,
@@ -12,6 +12,6 @@ class Profile {
     required this.address,
     required this.institution,
     required this.occupation,
-    required this.graduationYear,
+    required this.isConsultant,
   });
 }

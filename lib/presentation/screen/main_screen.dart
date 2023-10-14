@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reachout/presentation/screen/chat/chat_screen.dart';
 import 'package:reachout/presentation/screen/consultation/consultation_screen.dart';
 import 'package:reachout/presentation/screen/home/home_screen.dart';
 import 'package:reachout/presentation/screen/more/more_screen.dart';
@@ -39,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
     _pages = [
       const HomeScreen(),
       const ConsultationScreen(),
-      const Center(child: Text('Chat')),
+      const ChatScreen(),
       const MoreScreen(),
     ];
   }

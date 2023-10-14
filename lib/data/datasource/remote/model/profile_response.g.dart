@@ -14,7 +14,7 @@ _$ProfileResponseImpl _$$ProfileResponseImplFromJson(
       address: json['address'] as String?,
       institution: json['institution'] as String?,
       occupation: json['occupation'] as String?,
-      graduationYear: json['graduation_year'] as int?,
+      isConsultant: json['consultant'] as bool,
     );
 
 Map<String, dynamic> _$$ProfileResponseImplToJson(
@@ -25,5 +25,5 @@ Map<String, dynamic> _$$ProfileResponseImplToJson(
       'address': instance.address,
       'institution': instance.institution,
       'occupation': instance.occupation,
-      'graduation_year': instance.graduationYear,
+      'consultant': instance.isConsultant,
     };

@@ -30,8 +30,8 @@ mixin _$ProfileResponse {
   String? get institution => throw _privateConstructorUsedError;
   @JsonKey(name: 'occupation')
   String? get occupation => throw _privateConstructorUsedError;
-  @JsonKey(name: 'graduation_year')
-  int? get graduationYear => throw _privateConstructorUsedError;
+  @JsonKey(name: 'consultant')
+  bool get isConsultant => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +51,7 @@ abstract class $ProfileResponseCopyWith<$Res> {
       @JsonKey(name: 'address') String? address,
       @JsonKey(name: 'institution') String? institution,
       @JsonKey(name: 'occupation') String? occupation,
-      @JsonKey(name: 'graduation_year') int? graduationYear});
+      @JsonKey(name: 'consultant') bool isConsultant});
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
     Object? address = freezed,
     Object? institution = freezed,
     Object? occupation = freezed,
-    Object? graduationYear = freezed,
+    Object? isConsultant = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -95,10 +95,10 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
           ? _value.occupation
           : occupation // ignore: cast_nullable_to_non_nullable
               as String?,
-      graduationYear: freezed == graduationYear
-          ? _value.graduationYear
-          : graduationYear // ignore: cast_nullable_to_non_nullable
-              as int?,
+      isConsultant: null == isConsultant
+          ? _value.isConsultant
+          : isConsultant // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -117,7 +117,7 @@ abstract class _$$ProfileResponseImplCopyWith<$Res>
       @JsonKey(name: 'address') String? address,
       @JsonKey(name: 'institution') String? institution,
       @JsonKey(name: 'occupation') String? occupation,
-      @JsonKey(name: 'graduation_year') int? graduationYear});
+      @JsonKey(name: 'consultant') bool isConsultant});
 }
 
 /// @nodoc
@@ -136,7 +136,7 @@ class __$$ProfileResponseImplCopyWithImpl<$Res>
     Object? address = freezed,
     Object? institution = freezed,
     Object? occupation = freezed,
-    Object? graduationYear = freezed,
+    Object? isConsultant = null,
   }) {
     return _then(_$ProfileResponseImpl(
       id: null == id
@@ -159,10 +159,10 @@ class __$$ProfileResponseImplCopyWithImpl<$Res>
           ? _value.occupation
           : occupation // ignore: cast_nullable_to_non_nullable
               as String?,
-      graduationYear: freezed == graduationYear
-          ? _value.graduationYear
-          : graduationYear // ignore: cast_nullable_to_non_nullable
-              as int?,
+      isConsultant: null == isConsultant
+          ? _value.isConsultant
+          : isConsultant // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -176,7 +176,7 @@ class _$ProfileResponseImpl implements _ProfileResponse {
       @JsonKey(name: 'address') required this.address,
       @JsonKey(name: 'institution') required this.institution,
       @JsonKey(name: 'occupation') required this.occupation,
-      @JsonKey(name: 'graduation_year') required this.graduationYear});
+      @JsonKey(name: 'consultant') required this.isConsultant});
 
   factory _$ProfileResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileResponseImplFromJson(json);
@@ -197,12 +197,12 @@ class _$ProfileResponseImpl implements _ProfileResponse {
   @JsonKey(name: 'occupation')
   final String? occupation;
   @override
-  @JsonKey(name: 'graduation_year')
-  final int? graduationYear;
+  @JsonKey(name: 'consultant')
+  final bool isConsultant;
 
   @override
   String toString() {
-    return 'ProfileResponse(id: $id, mobileNumber: $mobileNumber, address: $address, institution: $institution, occupation: $occupation, graduationYear: $graduationYear)';
+    return 'ProfileResponse(id: $id, mobileNumber: $mobileNumber, address: $address, institution: $institution, occupation: $occupation, isConsultant: $isConsultant)';
   }
 
   @override
@@ -218,14 +218,14 @@ class _$ProfileResponseImpl implements _ProfileResponse {
                 other.institution == institution) &&
             (identical(other.occupation, occupation) ||
                 other.occupation == occupation) &&
-            (identical(other.graduationYear, graduationYear) ||
-                other.graduationYear == graduationYear));
+            (identical(other.isConsultant, isConsultant) ||
+                other.isConsultant == isConsultant));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, mobileNumber, address,
-      institution, occupation, graduationYear);
+      institution, occupation, isConsultant);
 
   @JsonKey(ignore: true)
   @override
@@ -244,13 +244,13 @@ class _$ProfileResponseImpl implements _ProfileResponse {
 
 abstract class _ProfileResponse implements ProfileResponse {
   const factory _ProfileResponse(
-      {@JsonKey(name: 'id') required final int id,
-      @JsonKey(name: 'mobile_number') required final String mobileNumber,
-      @JsonKey(name: 'address') required final String? address,
-      @JsonKey(name: 'institution') required final String? institution,
-      @JsonKey(name: 'occupation') required final String? occupation,
-      @JsonKey(name: 'graduation_year')
-      required final int? graduationYear}) = _$ProfileResponseImpl;
+          {@JsonKey(name: 'id') required final int id,
+          @JsonKey(name: 'mobile_number') required final String mobileNumber,
+          @JsonKey(name: 'address') required final String? address,
+          @JsonKey(name: 'institution') required final String? institution,
+          @JsonKey(name: 'occupation') required final String? occupation,
+          @JsonKey(name: 'consultant') required final bool isConsultant}) =
+      _$ProfileResponseImpl;
 
   factory _ProfileResponse.fromJson(Map<String, dynamic> json) =
       _$ProfileResponseImpl.fromJson;
@@ -271,8 +271,8 @@ abstract class _ProfileResponse implements ProfileResponse {
   @JsonKey(name: 'occupation')
   String? get occupation;
   @override
-  @JsonKey(name: 'graduation_year')
-  int? get graduationYear;
+  @JsonKey(name: 'consultant')
+  bool get isConsultant;
   @override
   @JsonKey(ignore: true)
   _$$ProfileResponseImplCopyWith<_$ProfileResponseImpl> get copyWith =>
