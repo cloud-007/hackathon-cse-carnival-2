@@ -25,11 +25,11 @@ mixin _$ProfileResponse {
   @JsonKey(name: 'mobile_number')
   String get mobileNumber => throw _privateConstructorUsedError;
   @JsonKey(name: 'address')
-  String get address => throw _privateConstructorUsedError;
+  String? get address => throw _privateConstructorUsedError;
   @JsonKey(name: 'institution')
-  String get institution => throw _privateConstructorUsedError;
-  @JsonKey(name: 'department')
-  String get department => throw _privateConstructorUsedError;
+  String? get institution => throw _privateConstructorUsedError;
+  @JsonKey(name: 'occupation')
+  String? get occupation => throw _privateConstructorUsedError;
   @JsonKey(name: 'graduation_year')
   int? get graduationYear => throw _privateConstructorUsedError;
 
@@ -48,9 +48,9 @@ abstract class $ProfileResponseCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'mobile_number') String mobileNumber,
-      @JsonKey(name: 'address') String address,
-      @JsonKey(name: 'institution') String institution,
-      @JsonKey(name: 'department') String department,
+      @JsonKey(name: 'address') String? address,
+      @JsonKey(name: 'institution') String? institution,
+      @JsonKey(name: 'occupation') String? occupation,
       @JsonKey(name: 'graduation_year') int? graduationYear});
 }
 
@@ -69,9 +69,9 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
   $Res call({
     Object? id = null,
     Object? mobileNumber = null,
-    Object? address = null,
-    Object? institution = null,
-    Object? department = null,
+    Object? address = freezed,
+    Object? institution = freezed,
+    Object? occupation = freezed,
     Object? graduationYear = freezed,
   }) {
     return _then(_value.copyWith(
@@ -83,18 +83,18 @@ class _$ProfileResponseCopyWithImpl<$Res, $Val extends ProfileResponse>
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      institution: null == institution
+              as String?,
+      institution: freezed == institution
           ? _value.institution
           : institution // ignore: cast_nullable_to_non_nullable
-              as String,
-      department: null == department
-          ? _value.department
-          : department // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      occupation: freezed == occupation
+          ? _value.occupation
+          : occupation // ignore: cast_nullable_to_non_nullable
+              as String?,
       graduationYear: freezed == graduationYear
           ? _value.graduationYear
           : graduationYear // ignore: cast_nullable_to_non_nullable
@@ -114,9 +114,9 @@ abstract class _$$ProfileResponseImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id') int id,
       @JsonKey(name: 'mobile_number') String mobileNumber,
-      @JsonKey(name: 'address') String address,
-      @JsonKey(name: 'institution') String institution,
-      @JsonKey(name: 'department') String department,
+      @JsonKey(name: 'address') String? address,
+      @JsonKey(name: 'institution') String? institution,
+      @JsonKey(name: 'occupation') String? occupation,
       @JsonKey(name: 'graduation_year') int? graduationYear});
 }
 
@@ -133,9 +133,9 @@ class __$$ProfileResponseImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? mobileNumber = null,
-    Object? address = null,
-    Object? institution = null,
-    Object? department = null,
+    Object? address = freezed,
+    Object? institution = freezed,
+    Object? occupation = freezed,
     Object? graduationYear = freezed,
   }) {
     return _then(_$ProfileResponseImpl(
@@ -147,18 +147,18 @@ class __$$ProfileResponseImplCopyWithImpl<$Res>
           ? _value.mobileNumber
           : mobileNumber // ignore: cast_nullable_to_non_nullable
               as String,
-      address: null == address
+      address: freezed == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String,
-      institution: null == institution
+              as String?,
+      institution: freezed == institution
           ? _value.institution
           : institution // ignore: cast_nullable_to_non_nullable
-              as String,
-      department: null == department
-          ? _value.department
-          : department // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      occupation: freezed == occupation
+          ? _value.occupation
+          : occupation // ignore: cast_nullable_to_non_nullable
+              as String?,
       graduationYear: freezed == graduationYear
           ? _value.graduationYear
           : graduationYear // ignore: cast_nullable_to_non_nullable
@@ -175,7 +175,7 @@ class _$ProfileResponseImpl implements _ProfileResponse {
       @JsonKey(name: 'mobile_number') required this.mobileNumber,
       @JsonKey(name: 'address') required this.address,
       @JsonKey(name: 'institution') required this.institution,
-      @JsonKey(name: 'department') required this.department,
+      @JsonKey(name: 'occupation') required this.occupation,
       @JsonKey(name: 'graduation_year') required this.graduationYear});
 
   factory _$ProfileResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -189,20 +189,20 @@ class _$ProfileResponseImpl implements _ProfileResponse {
   final String mobileNumber;
   @override
   @JsonKey(name: 'address')
-  final String address;
+  final String? address;
   @override
   @JsonKey(name: 'institution')
-  final String institution;
+  final String? institution;
   @override
-  @JsonKey(name: 'department')
-  final String department;
+  @JsonKey(name: 'occupation')
+  final String? occupation;
   @override
   @JsonKey(name: 'graduation_year')
   final int? graduationYear;
 
   @override
   String toString() {
-    return 'ProfileResponse(id: $id, mobileNumber: $mobileNumber, address: $address, institution: $institution, department: $department, graduationYear: $graduationYear)';
+    return 'ProfileResponse(id: $id, mobileNumber: $mobileNumber, address: $address, institution: $institution, occupation: $occupation, graduationYear: $graduationYear)';
   }
 
   @override
@@ -216,8 +216,8 @@ class _$ProfileResponseImpl implements _ProfileResponse {
             (identical(other.address, address) || other.address == address) &&
             (identical(other.institution, institution) ||
                 other.institution == institution) &&
-            (identical(other.department, department) ||
-                other.department == department) &&
+            (identical(other.occupation, occupation) ||
+                other.occupation == occupation) &&
             (identical(other.graduationYear, graduationYear) ||
                 other.graduationYear == graduationYear));
   }
@@ -225,7 +225,7 @@ class _$ProfileResponseImpl implements _ProfileResponse {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, mobileNumber, address,
-      institution, department, graduationYear);
+      institution, occupation, graduationYear);
 
   @JsonKey(ignore: true)
   @override
@@ -246,9 +246,9 @@ abstract class _ProfileResponse implements ProfileResponse {
   const factory _ProfileResponse(
       {@JsonKey(name: 'id') required final int id,
       @JsonKey(name: 'mobile_number') required final String mobileNumber,
-      @JsonKey(name: 'address') required final String address,
-      @JsonKey(name: 'institution') required final String institution,
-      @JsonKey(name: 'department') required final String department,
+      @JsonKey(name: 'address') required final String? address,
+      @JsonKey(name: 'institution') required final String? institution,
+      @JsonKey(name: 'occupation') required final String? occupation,
       @JsonKey(name: 'graduation_year')
       required final int? graduationYear}) = _$ProfileResponseImpl;
 
@@ -263,13 +263,13 @@ abstract class _ProfileResponse implements ProfileResponse {
   String get mobileNumber;
   @override
   @JsonKey(name: 'address')
-  String get address;
+  String? get address;
   @override
   @JsonKey(name: 'institution')
-  String get institution;
+  String? get institution;
   @override
-  @JsonKey(name: 'department')
-  String get department;
+  @JsonKey(name: 'occupation')
+  String? get occupation;
   @override
   @JsonKey(name: 'graduation_year')
   int? get graduationYear;

@@ -11,9 +11,9 @@ _$ProfileResponseImpl _$$ProfileResponseImplFromJson(
     _$ProfileResponseImpl(
       id: json['id'] as int,
       mobileNumber: json['mobile_number'] as String,
-      address: json['address'] as String,
-      institution: json['institution'] as String,
-      department: json['department'] as String,
+      address: json['address'] as String?,
+      institution: json['institution'] as String?,
+      occupation: json['occupation'] as String?,
       graduationYear: json['graduation_year'] as int?,
     );
 
@@ -24,6 +24,6 @@ Map<String, dynamic> _$$ProfileResponseImplToJson(
       'mobile_number': instance.mobileNumber,
       'address': instance.address,
       'institution': instance.institution,
-      'department': instance.department,
+      'occupation': instance.occupation,
       'graduation_year': instance.graduationYear,
     };

@@ -1,9 +1,9 @@
 class Profile {
   final int id;
   final String mobileNumber;
-  final String address;
-  final String institution;
-  final String department;
+  final String? address;
+  final String? institution;
+  final String? occupation;
   final int? graduationYear;
 
   Profile({
@@ -11,7 +11,7 @@ class Profile {
     required this.mobileNumber,
     required this.address,
     required this.institution,
-    required this.department,
+    required this.occupation,
     required this.graduationYear,
   });
 }

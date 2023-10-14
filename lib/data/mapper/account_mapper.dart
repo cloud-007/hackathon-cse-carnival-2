@@ -10,7 +10,7 @@ extension ProfileResponseMapper on ProfileResponse {
       mobileNumber: mobileNumber,
       address: address,
       institution: institution,
-      department: department,
+      occupation: occupation,
       graduationYear: graduationYear,
     );
   }

@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:reachout/presentation/screen/consultation/widgets/appointment_tab_screen.dart';
+import 'package:reachout/presentation/screen/consultation/widgets/consultation_tab_screen.dart';
 
 class ConsultationScreen extends ConsumerStatefulWidget {
-  const ConsultationScreen({super.key});
+  final bool? shouldAutoFocus;
+
+  const ConsultationScreen({
+    super.key,
+    this.shouldAutoFocus = false,
+  });
 
   @override
   ConsumerState<ConsultationScreen> createState() => _ConsultationScreenState();
@@ -28,6 +35,7 @@ class _ConsultationScreenState extends ConsumerState<ConsultationScreen>
             color: Colors.white,
           ),
         ),
+        automaticallyImplyLeading: false,
         bottom: TabBar(
           controller: _tabController,
           labelColor: Colors.white,
@@ -47,12 +55,8 @@ class _ConsultationScreenState extends ConsumerState<ConsultationScreen>
       body: TabBarView(
         controller: _tabController,
         children: const [
-          Center(
-            child: Text('Consultation'),
-          ),
-          Center(
-            child: Text('Appointment'),
-          ),
+          ConsultationTabScreen(),
+          AppointmentTabScreen(),
         ],
       ),
     );

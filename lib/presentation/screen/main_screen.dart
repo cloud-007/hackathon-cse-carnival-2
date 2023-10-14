@@ -6,8 +6,12 @@ import 'package:reachout/presentation/screen/more/more_screen.dart';
 
 class MainScreenArgs {
   final int? index;
+  final bool? shouldAutoFocus;
 
-  MainScreenArgs({required this.index});
+  MainScreenArgs({
+    required this.index,
+    this.shouldAutoFocus,
+  });
 }
 
 class MainScreen extends StatefulWidget {
@@ -35,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
     _pages = [
       const HomeScreen(),
       const ConsultationScreen(),
-      const Center(child: Text('Search')),
+      const Center(child: Text('Chat')),
       const MoreScreen(),
     ];
   }
@@ -72,9 +76,9 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Services',
           ),
           NavigationDestination(
-            icon: Icon(Iconsax.calendar),
-            selectedIcon: Icon(Iconsax.calendar),
-            label: 'Appointment',
+            icon: Icon(Iconsax.chart),
+            selectedIcon: Icon(Iconsax.chart),
+            label: 'Chat',
           ),
           NavigationDestination(
             icon: Icon(Iconsax.user),

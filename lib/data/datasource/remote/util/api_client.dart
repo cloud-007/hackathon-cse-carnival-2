@@ -170,6 +170,8 @@ class ApiClient {
       throw Failure.mapDioException(Exception(exception));
     }
 
+    return converter(response.data as T);
+
     try {
       return converter(response.data as T);
     } catch (exception) {

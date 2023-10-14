@@ -32,7 +32,7 @@ class SectionView extends ConsumerWidget {
                     children: [
                       Text(
                         featuredSection.title,
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                       TextButton(onPressed: () {}, child: const Text('More'))
                     ],
@@ -57,6 +57,24 @@ class SectionView extends ConsumerWidget {
                               card.thumbnailUrl,
                               width: 100,
                               height: 100,
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
+                                if (loadingProgress == null) {
+                                  return child;
+                                }
+                                return Container(
+                                  width: 100,
+                                  height: 100,
+                                  color: Colors.grey.shade200,
+                                );
+                              },
+                              errorBuilder: (context, error, stackTrace) {
+                                return Container(
+                                  width: 100,
+                                  height: 100,
+                                  color: Colors.grey.shade200,
+                                );
+                              },
                             ),
                             const SizedBox(width: 8),
                             Expanded(
@@ -68,11 +86,15 @@ class SectionView extends ConsumerWidget {
                                     card.title,
                                     style:
                                         Theme.of(context).textTheme.titleMedium,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                   Text(
                                     card.description,
                                     style:
                                         Theme.of(context).textTheme.bodyMedium,
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
                                   ),
                                 ],
                               ),

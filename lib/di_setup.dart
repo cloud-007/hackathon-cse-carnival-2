@@ -20,6 +20,7 @@ import 'package:reachout/domain/usecase/account/check_is_logged_in_use_case.dart
 import 'package:reachout/domain/usecase/account/get_user_info_use_case.dart';
 import 'package:reachout/domain/usecase/account/google_sign_in_use_case.dart';
 import 'package:reachout/domain/usecase/account/sign_out_use_case.dart';
+import 'package:reachout/domain/usecase/consultation/get_consultation_service_use_case.dart';
 import 'package:reachout/domain/usecase/consultation/get_featured_section_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -84,6 +85,10 @@ Future<void> setup() async {
   //consultation
   getIt.registerLazySingleton(
     () => GetFeaturedSectionUseCase(consultationRepository: getIt()),
+  );
+
+  getIt.registerLazySingleton(
+    () => GetConsultationServiceUseCase(consultationRepository: getIt()),
   );
   //endregion
   //region:: api
