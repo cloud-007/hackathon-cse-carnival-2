@@ -1,6 +1,6 @@
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:reachout/data/datasource/remote/source/account_local_data_source.dart';
-import 'package:reachout/data/datasource/remote/source/account_remote_data_source.dart';
+import 'package:reachout/data/datasource/source/account_local_data_source.dart';
+import 'package:reachout/data/datasource/source/account_remote_data_source.dart';
 import 'package:reachout/domain/model/account/user.dart';
 import 'package:reachout/domain/repository/account_repository.dart';
 import 'package:reachout/domain/util/failure.dart';

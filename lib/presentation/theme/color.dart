@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //region Primary
 const Color colorOnPrimary = Color(0xFFFFFFFF);
-const Color colorPrimary = Color(0xFF4865FF);
+const Color colorPrimary = Color(0xFF6F217E);
 const Color colorPrimaryLight = Color(0xFF0097CC);
 //endregion Primary
 
@@ -11,34 +11,6 @@ const Color colorOnSecondary = Color(0xFF6748AB);
 const Color colorSecondary = Color(0xFF02C7B0);
 const Color colorSecondaryDark = Color(0xFFB21A75);
 // endregion Secondary
-
-//region Amber
-const Color colorAmber = Color(0xFFFFCB5C);
-const Color colorOnAmber = Color(0xFFFFFFFF);
-const Color colorAmberLight = Color(0xFFFFFAEC);
-const Color colorOnAmberLight = Color(0xFF000000);
-//endregion Amber
-
-//region Blue
-const Color colorBlue = Color(0xFF60D4F2);
-const Color colorOnBlue = Color(0xFFFFFFFF);
-const Color colorBlueLight = Color(0xFFE7F6FD);
-const Color colorOnBlueLight = Color(0xFF000000);
-//endregion Blue
-
-//region Pink
-const Color colorPink = Color(0xFFFF8699);
-const Color colorOnPink = Color(0xFFFFFFFF);
-const Color colorPinkLight = Color(0xFFFEF2F2);
-const Color colorOnPinkLight = Color(0xFF000000);
-//endregion Pink
-
-//region Purple
-const Color colorPurple = Color(0xFF9094F4);
-const Color colorOnPurple = Color(0xFFFFFFFF);
-const Color colorPurpleLight = Color(0xFFECF2FF);
-const Color colorOnPurpleLight = Color(0xFF000000);
-//endregion Purple
 
 //region Background
 const Color colorBg = Color(0xFFFFFFFF);

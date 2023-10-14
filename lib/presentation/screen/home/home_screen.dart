@@ -27,6 +27,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             ),
             HomeCarousel(),
             HomeSearch(),
+            SizedBox(height: 16.0),
             SectionView(),
           ],
         ),

@@ -1,4 +1,4 @@
-import 'package:reachout/data/datasource/remote/source/account_local_data_source.dart';
+import 'package:reachout/data/datasource/source/account_local_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AccountLocalDataSourceImpl implements AccountLocalDataSource {

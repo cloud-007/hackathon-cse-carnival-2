@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:reachout/data/datasource/remote/source/account_local_data_source.dart';
+import 'package:reachout/data/datasource/source/account_local_data_source.dart';
 
 class AuthInterceptor extends Interceptor {
   final AccountLocalDataSource _accountLocalDataSource;

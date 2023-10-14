@@ -28,14 +28,15 @@ class UserInfo extends ConsumerWidget {
                 CircleAvatar(
                   backgroundColor: Colors.grey.shade200,
                   backgroundImage: NetworkImage(user.picture ?? ''),
+                  radius: 24,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       user.fullName,
-                      style: Theme.of(context).textTheme.bodyMedium,
+                      style: Theme.of(context).textTheme.titleMedium,
                     ),
                     Text(
                       user.email,
@@ -56,7 +57,7 @@ class UserInfo extends ConsumerWidget {
                   backgroundColor: Colors.grey.shade300,
                   radius: 24,
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

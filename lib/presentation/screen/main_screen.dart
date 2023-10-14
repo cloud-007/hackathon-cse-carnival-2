@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reachout/presentation/screen/consultation/consultation_screen.dart';
 import 'package:reachout/presentation/screen/home/home_screen.dart';
 import 'package:reachout/presentation/screen/more/more_screen.dart';
 
@@ -33,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
     _pages = [
       const HomeScreen(),
-      const Center(child: Text('Discover')),
+      const ConsultationScreen(),
       const Center(child: Text('Search')),
       const MoreScreen(),
     ];
@@ -61,23 +62,23 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: NavigationBar(
         destinations: const [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
+            icon: Icon(Iconsax.home),
+            selectedIcon: Icon(Iconsax.home),
             label: 'Home',
           ),
           NavigationDestination(
-            icon: Icon(Iconsax.home),
-            selectedIcon: Icon(Iconsax.home_2),
-            label: 'Discover',
+            icon: Icon(Iconsax.document),
+            selectedIcon: Icon(Iconsax.document),
+            label: 'Services',
           ),
           NavigationDestination(
-            icon: Icon(Icons.abc),
-            selectedIcon: Icon(Icons.add),
-            label: 'Search',
+            icon: Icon(Iconsax.calendar),
+            selectedIcon: Icon(Iconsax.calendar),
+            label: 'Appointment',
           ),
           NavigationDestination(
-            icon: Icon(Iconsax.home),
-            selectedIcon: Icon(Iconsax.home_2),
+            icon: Icon(Iconsax.user),
+            selectedIcon: Icon(Iconsax.user),
             label: 'More',
           ),
         ],

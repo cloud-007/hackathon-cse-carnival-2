@@ -55,12 +55,6 @@ class AuthScreen extends ConsumerWidget {
 
                   const SizedBox(height: 16),
 
-                  ElevatedButton(
-                      onPressed: () {
-                        ref.read(authNotifierProvider.notifier).signOut();
-                      },
-                      child: Text('Sign Out')),
-
                   const GoogleSignInButton(), //
 
                   OutlinedButton(
