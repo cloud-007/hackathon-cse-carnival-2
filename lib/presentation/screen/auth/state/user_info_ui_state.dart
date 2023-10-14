@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:reachout/domain/model/user.dart';
+import 'package:reachout/domain/model/account/user.dart';
 
 part 'user_info_ui_state.freezed.dart';
 

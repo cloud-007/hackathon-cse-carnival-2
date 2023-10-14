@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:reachout/presentation/screen/home/home_screen.dart';
+import 'package:reachout/presentation/screen/more/more_screen.dart';
 
 class MainScreenArgs {
   final int? index;
@@ -30,14 +32,10 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     super.initState();
     _pages = [
-      // const HomeScreen(),
-      // const StudyScreen(),
-      // const TipsScreen(),
-      // const MoreScreen(),
-      const Center(child: Text('Home')),
+      const HomeScreen(),
       const Center(child: Text('Discover')),
       const Center(child: Text('Search')),
-      const Center(child: Text('More')),
+      const MoreScreen(),
     ];
   }
 

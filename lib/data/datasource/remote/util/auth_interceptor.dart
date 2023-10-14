@@ -1,14 +1,14 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:reachout/data/dart/local_data_source.dart';
+import 'package:reachout/data/datasource/remote/source/account_local_data_source.dart';
 
 class AuthInterceptor extends Interceptor {
-  final LocalDataSource _localDataSource;
+  final AccountLocalDataSource _accountLocalDataSource;
 
   AuthInterceptor({
-    required LocalDataSource localDataSource,
-  }) : _localDataSource = localDataSource;
+    required AccountLocalDataSource accountLocalDataSource,
+  }) : _accountLocalDataSource = accountLocalDataSource;
 
   @override
   void onRequest(
@@ -16,18 +16,19 @@ class AuthInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     final platform = Platform.operatingSystem;
-    final packageName = await _localDataSource.getPackageName();
+    // get it from pubspec using package
+    const packageName = 'com.example.reachout';
     final localeName = Platform.localeName;
-    final versionName = await _localDataSource.getApkVersion();
+    const versionName = '1.0.0';
 
     var requestHeaders = [
       MapEntry('App-Platform', platform),
-      MapEntry('App-Package-Name', packageName),
+      const MapEntry('App-Package-Name', packageName),
       MapEntry('App-Locale', localeName),
-      MapEntry('App-Version', versionName),
+      const MapEntry('App-Version', versionName),
     ];
 
-    final token = _localDataSource.getServerToken();
+    final token = _accountLocalDataSource.getServerToken();
     if (token != null) {
       requestHeaders.add(MapEntry('Authorization', 'Token $token'));
     }

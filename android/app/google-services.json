@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "350666845354",
+    "project_id": "reachout-ovream-main",
+    "storage_bucket": "reachout-ovream-main.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350666845354:android:de0afa63678143f8aeb4d3",
+        "android_client_info": {
+          "package_name": "com.example.reachout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350666845354-aeve6qh8e0cimoucoscaahdo4g9jtdee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPlYBl-p_3iE8CSCryOr-W2eA5_6E2-m0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350666845354-aeve6qh8e0cimoucoscaahdo4g9jtdee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

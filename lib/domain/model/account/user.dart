@@ -1,4 +1,4 @@
-import 'package:reachout/domain/model/profile.dart';
+import 'package:reachout/domain/model/account/profile.dart';
 
 class User {
   final int id;
