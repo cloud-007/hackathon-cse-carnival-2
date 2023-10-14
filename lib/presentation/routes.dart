@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:reachout/presentation/screen/auth/auth_screen.dart';
 import 'package:reachout/presentation/screen/main_screen.dart';
+import 'package:reachout/presentation/screen/service_detail/service_detail_screen.dart';
 
 class Routes {
   static const String auth = 'auth';
   static const String main = 'main';
+  static const String serviceDetail = 'serviceDetail';
 
   static PageRoute generateRoutes(RouteSettings settings) {
     return PageRouteBuilder(
@@ -15,6 +17,8 @@ class Routes {
             return const AuthScreen();
           case main:
             return const MainScreen();
+          case serviceDetail:
+            return const ServiceDetailScreen();
           default:
             return const Scaffold(body: Center(child: Text('404')));
         }

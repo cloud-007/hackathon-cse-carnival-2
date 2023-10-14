@@ -54,9 +54,9 @@ class _ConsultationScreenState extends ConsumerState<ConsultationScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: const [
-          ConsultationTabScreen(),
-          AppointmentTabScreen(),
+        children: [
+          ConsultationTabScreen(shouldAutoFocus: widget.shouldAutoFocus),
+          const AppointmentTabScreen(),
         ],
       ),
     );

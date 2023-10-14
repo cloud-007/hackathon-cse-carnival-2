@@ -9,7 +9,7 @@ class HomeSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(
+        Navigator.of(context).popAndPushNamed(
           Routes.main,
           arguments: MainScreenArgs(index: 1, shouldAutoFocus: true),
         );
