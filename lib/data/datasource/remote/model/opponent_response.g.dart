@@ -15,7 +15,6 @@ _$OpponentResponseImpl _$$OpponentResponseImplFromJson(
       lastName: json['last_name'] as String,
       email: json['email'] as String,
       picture: json['picture'] as String,
-      isConsultant: json['consultant'] as bool,
       profile:
           ProfileResponse.fromJson(json['profile'] as Map<String, dynamic>),
     );
@@ -29,6 +28,5 @@ Map<String, dynamic> _$$OpponentResponseImplToJson(
       'last_name': instance.lastName,
       'email': instance.email,
       'picture': instance.picture,
-      'consultant': instance.isConsultant,
       'profile': instance.profile,
     };

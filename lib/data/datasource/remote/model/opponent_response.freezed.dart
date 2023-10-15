@@ -32,8 +32,6 @@ mixin _$OpponentResponse {
   String get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'picture')
   String get picture => throw _privateConstructorUsedError;
-  @JsonKey(name: 'consultant')
-  bool get isConsultant => throw _privateConstructorUsedError;
   @JsonKey(name: 'profile')
   ProfileResponse get profile => throw _privateConstructorUsedError;
 
@@ -56,7 +54,6 @@ abstract class $OpponentResponseCopyWith<$Res> {
       @JsonKey(name: 'last_name') String lastName,
       @JsonKey(name: 'email') String email,
       @JsonKey(name: 'picture') String picture,
-      @JsonKey(name: 'consultant') bool isConsultant,
       @JsonKey(name: 'profile') ProfileResponse profile});
 
   $ProfileResponseCopyWith<$Res> get profile;
@@ -81,7 +78,6 @@ class _$OpponentResponseCopyWithImpl<$Res, $Val extends OpponentResponse>
     Object? lastName = null,
     Object? email = null,
     Object? picture = null,
-    Object? isConsultant = null,
     Object? profile = null,
   }) {
     return _then(_value.copyWith(
@@ -109,10 +105,6 @@ class _$OpponentResponseCopyWithImpl<$Res, $Val extends OpponentResponse>
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
               as String,
-      isConsultant: null == isConsultant
-          ? _value.isConsultant
-          : isConsultant // ignore: cast_nullable_to_non_nullable
-              as bool,
       profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -144,7 +136,6 @@ abstract class _$$OpponentResponseImplCopyWith<$Res>
       @JsonKey(name: 'last_name') String lastName,
       @JsonKey(name: 'email') String email,
       @JsonKey(name: 'picture') String picture,
-      @JsonKey(name: 'consultant') bool isConsultant,
       @JsonKey(name: 'profile') ProfileResponse profile});
 
   @override
@@ -168,7 +159,6 @@ class __$$OpponentResponseImplCopyWithImpl<$Res>
     Object? lastName = null,
     Object? email = null,
     Object? picture = null,
-    Object? isConsultant = null,
     Object? profile = null,
   }) {
     return _then(_$OpponentResponseImpl(
@@ -196,10 +186,6 @@ class __$$OpponentResponseImplCopyWithImpl<$Res>
           ? _value.picture
           : picture // ignore: cast_nullable_to_non_nullable
               as String,
-      isConsultant: null == isConsultant
-          ? _value.isConsultant
-          : isConsultant // ignore: cast_nullable_to_non_nullable
-              as bool,
       profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -218,7 +204,6 @@ class _$OpponentResponseImpl implements _OpponentResponse {
       @JsonKey(name: 'last_name') required this.lastName,
       @JsonKey(name: 'email') required this.email,
       @JsonKey(name: 'picture') required this.picture,
-      @JsonKey(name: 'consultant') required this.isConsultant,
       @JsonKey(name: 'profile') required this.profile});
 
   factory _$OpponentResponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -243,15 +228,12 @@ class _$OpponentResponseImpl implements _OpponentResponse {
   @JsonKey(name: 'picture')
   final String picture;
   @override
-  @JsonKey(name: 'consultant')
-  final bool isConsultant;
-  @override
   @JsonKey(name: 'profile')
   final ProfileResponse profile;
 
   @override
   String toString() {
-    return 'OpponentResponse(id: $id, username: $username, firstName: $firstName, lastName: $lastName, email: $email, picture: $picture, isConsultant: $isConsultant, profile: $profile)';
+    return 'OpponentResponse(id: $id, username: $username, firstName: $firstName, lastName: $lastName, email: $email, picture: $picture, profile: $profile)';
   }
 
   @override
@@ -268,15 +250,13 @@ class _$OpponentResponseImpl implements _OpponentResponse {
                 other.lastName == lastName) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.picture, picture) || other.picture == picture) &&
-            (identical(other.isConsultant, isConsultant) ||
-                other.isConsultant == isConsultant) &&
             (identical(other.profile, profile) || other.profile == profile));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, username, firstName,
-      lastName, email, picture, isConsultant, profile);
+  int get hashCode => Object.hash(
+      runtimeType, id, username, firstName, lastName, email, picture, profile);
 
   @JsonKey(ignore: true)
   @override
@@ -301,7 +281,6 @@ abstract class _OpponentResponse implements OpponentResponse {
           @JsonKey(name: 'last_name') required final String lastName,
           @JsonKey(name: 'email') required final String email,
           @JsonKey(name: 'picture') required final String picture,
-          @JsonKey(name: 'consultant') required final bool isConsultant,
           @JsonKey(name: 'profile') required final ProfileResponse profile}) =
       _$OpponentResponseImpl;
 
@@ -326,9 +305,6 @@ abstract class _OpponentResponse implements OpponentResponse {
   @override
   @JsonKey(name: 'picture')
   String get picture;
-  @override
-  @JsonKey(name: 'consultant')
-  bool get isConsultant;
   @override
   @JsonKey(name: 'profile')
   ProfileResponse get profile;

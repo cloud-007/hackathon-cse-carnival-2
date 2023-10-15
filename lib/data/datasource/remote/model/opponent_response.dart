@@ -13,7 +13,6 @@ class OpponentResponse with _$OpponentResponse {
     @JsonKey(name: 'last_name') required String lastName,
     @JsonKey(name: 'email') required String email,
     @JsonKey(name: 'picture') required String picture,
-    @JsonKey(name: 'consultant') required bool isConsultant,
     @JsonKey(name: 'profile') required ProfileResponse profile,
   }) = _OpponentResponse;
 
