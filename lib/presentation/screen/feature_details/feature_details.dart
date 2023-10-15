@@ -60,7 +60,7 @@ class _FeatureDetailScreenState extends State<FeatureDetailScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
                 featuredCard?.description ?? 'Feature Description',
-                style: Theme.of(context).textTheme.bodyMedium,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ),
             const SizedBox(height: 16.0),
