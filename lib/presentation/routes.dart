@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reachout/presentation/screen/auth/auth_screen.dart';
 import 'package:reachout/presentation/screen/chat_detail/chat_detail_screen.dart';
+import 'package:reachout/presentation/screen/feature_details/feature_details.dart';
 import 'package:reachout/presentation/screen/main_screen.dart';
 import 'package:reachout/presentation/screen/service_detail/service_detail_screen.dart';
 
@@ -9,6 +10,7 @@ class Routes {
   static const String main = 'main';
   static const String serviceDetail = 'serviceDetail';
   static const String chatDetail = 'chatDetail';
+  static const String featureCardDetail = 'featureCardDetail';
 
   static PageRoute generateRoutes(RouteSettings settings) {
     return PageRouteBuilder(
@@ -19,6 +21,8 @@ class Routes {
             return const AuthScreen();
           case chatDetail:
             return const ChatDetailScreen();
+          case featureCardDetail:
+            return const FeatureDetailScreen();
           case main:
             return const MainScreen();
           case serviceDetail:

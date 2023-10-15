@@ -102,20 +102,24 @@ class ConsultationTabScreen extends ConsumerWidget {
                         children: [
                           Column(
                             children: [
-                              Image.network(
-                                item.user.picture ?? '',
-                                height: 64,
-                                loadingBuilder: (context, child, progress) {
-                                  if (progress == null) return child;
-                                  return const CircleAvatar(
-                                    radius: 24,
-                                  );
-                                },
-                                errorBuilder: (context, error, stackTrace) {
-                                  return const CircleAvatar(
-                                    radius: 24,
-                                  );
-                                },
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(1000),
+                                child: Image.network(
+                                  item.user.picture ?? '',
+                                  height: 64,
+                                  width: 64,
+                                  loadingBuilder: (context, child, progress) {
+                                    if (progress == null) return child;
+                                    return const CircleAvatar(
+                                      radius: 32,
+                                    );
+                                  },
+                                  errorBuilder: (context, error, stackTrace) {
+                                    return const CircleAvatar(
+                                      radius: 32,
+                                    );
+                                  },
+                                ),
                               ),
                               const SizedBox(height: 4),
                               Text(

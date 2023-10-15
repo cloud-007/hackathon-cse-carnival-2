@@ -741,6 +741,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
+  pusher_channels_flutter:
+    dependency: "direct main"
+    description:
+      name: pusher_channels_flutter
+      sha256: b2b61cc157f6ef64553800fec6946ff9c2a3bccae85309b5fede8287df6a2f06
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   quiver:
     dependency: transitive
     description:

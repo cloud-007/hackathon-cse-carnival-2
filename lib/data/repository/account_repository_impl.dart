@@ -33,7 +33,7 @@ class AccountRepositoryImpl implements AccountRepository {
       firebasePushToken: null,
     );
 
-    await _saveAccountId(id: response.userResponse.uuid ?? '');
+    await _saveAccountId(id: response.userResponse.id.toString() ?? '');
     await _saveSessionToken(token: response.token);
   }
 

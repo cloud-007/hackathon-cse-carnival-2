@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeCarousel extends ConsumerWidget {
   const HomeCarousel({super.key});
@@ -9,7 +8,7 @@ class HomeCarousel extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final carouselItem = [
-      'assets/images/banner.svg',
+      'assets/images/reachout_banner.png',
     ];
     return CarouselSlider(
       options: CarouselOptions(
@@ -29,17 +28,20 @@ class HomeCarousel extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: SvgPicture.asset(
+                  child: Image.asset(
                     banner,
                     width: double.infinity,
-                    placeholderBuilder: (context) => Container(
-                      height: 200,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.grey.shade300,
-                      ),
-                    ),
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Colors.grey.shade200,
+                        child: const Center(
+                          child: Icon(
+                            Icons.error,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

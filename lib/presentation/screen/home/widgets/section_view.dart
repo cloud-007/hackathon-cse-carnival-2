@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:reachout/presentation/routes.dart';
+import 'package:reachout/presentation/screen/feature_details/feature_details.dart';
 import 'package:reachout/presentation/screen/home/notifier/providers.dart';
 import 'package:reachout/presentation/screen/home/widgets/loading_shimmer.dart';
 
@@ -46,65 +48,43 @@ class SectionView extends ConsumerWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     itemBuilder: (context, index) {
                       final card = featuredSection.cards[index];
-                      return Container(
-                        padding: const EdgeInsets.all(8.0),
-                        width: 300,
-                        height: 80,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.network(
-                              card.thumbnailUrl,
-                              width: 100,
-                              height: 100,
-                              loadingBuilder:
-                                  (context, child, loadingProgress) {
-                                if (loadingProgress == null) {
-                                  return child;
-                                }
-                                return Container(
-                                  width: 100,
-                                  height: 100,
-                                  color: Colors.grey.shade200,
-                                );
-                              },
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  width: 100,
-                                  height: 100,
-                                  color: Colors.grey.shade200,
-                                );
-                              },
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            Routes.featureCardDetail,
+                            arguments: FeatureDetailScreenArgs(
+                              featuredCard: card,
                             ),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    card.title,
-                                    style:
-                                        Theme.of(context).textTheme.titleMedium,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  Text(
-                                    card.description,
-                                    style:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                          );
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            card.thumbnailUrl,
+                            height: 100,
+                            loadingBuilder: (context, child, loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              }
+                              return Container(
+                                height: 100,
+                                width: 150,
+                                color: Colors.grey.shade200,
+                              );
+                            },
+                            errorBuilder: (context, error, stackTrace) {
+                              return Container(
+                                height: 100,
+                                width: 200,
+                                color: Colors.grey.shade200,
+                              );
+                            },
+                          ),
                         ),
                       );
                     },
                     separatorBuilder: (BuildContext context, int index) {
-                      return const Divider();
+                      return const SizedBox(width: 20);
                     },
                   ),
                 ),
@@ -112,7 +92,7 @@ class SectionView extends ConsumerWidget {
             );
           },
           separatorBuilder: (BuildContext context, int index) {
-            return const SizedBox(height: 20);
+            return const Divider();
           },
         );
       },
