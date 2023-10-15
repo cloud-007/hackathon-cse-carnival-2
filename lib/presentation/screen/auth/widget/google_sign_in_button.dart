@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:reachout/presentation/screen/auth/notifier/providers.dart';
 import 'package:reachout/presentation/screen/auth/state/user_info_ui_state.dart';
 
@@ -48,7 +49,11 @@ class _GoogleSignInButtonState extends ConsumerState<GoogleSignInButton> {
               ref.read(authNotifierProvider.notifier).googleSignIn();
             },
           ),
-          icon: const Icon(Icons.apple),
+          icon: SvgPicture.asset(
+            'assets/icons/ic-google.svg',
+            height: 24,
+            width: 24,
+          ),
           label: Container(), // Empty container
         ),
         Positioned.fill(
