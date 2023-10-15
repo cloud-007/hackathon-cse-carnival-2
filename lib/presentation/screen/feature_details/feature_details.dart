@@ -28,7 +28,7 @@ class _FeatureDetailScreenState extends State<FeatureDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Feature Details',
+          'Details',
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
