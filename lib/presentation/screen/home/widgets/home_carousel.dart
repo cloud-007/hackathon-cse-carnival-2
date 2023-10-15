@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:reachout/presentation/routes.dart';
+import 'package:reachout/presentation/screen/main_screen.dart';
 
 class HomeCarousel extends ConsumerWidget {
   const HomeCarousel({super.key});
@@ -23,7 +25,14 @@ class HomeCarousel extends ConsumerWidget {
         return Builder(
           builder: (BuildContext context) {
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).popAndPushNamed(
+                  Routes.main,
+                  arguments: MainScreenArgs(
+                    index: 1,
+                  ),
+                );
+              },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
                 child: Padding(

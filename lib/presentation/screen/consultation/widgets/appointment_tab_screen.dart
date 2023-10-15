@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reachout/presentation/theme/color.dart';
@@ -18,6 +20,37 @@ class _AppointmentTabScreenState extends ConsumerState<AppointmentTabScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this, initialIndex: 0);
+  }
+
+  String getRandomDay() {
+    final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    final random = Random();
+    int randomNumber = random.nextInt(7);
+    return days[randomNumber];
+  }
+
+  String getRandomName() {
+    final List<String> names = [
+      'Dr. John Doe',
+      'Mark Doe',
+      'Sasuke Uchiha',
+      'Naruto Uzumaki',
+    ];
+    final random = Random();
+    int randomNumber = random.nextInt(4);
+    return names[randomNumber];
+  }
+
+  String getRandomTitle() {
+    final List<String> titles = [
+      'Researcher',
+      'Doctor',
+      'Professor',
+      'Scientist',
+    ];
+    final random = Random();
+    int randomNumber = random.nextInt(4);
+    return titles[randomNumber];
   }
 
   @override
@@ -145,20 +178,342 @@ class _AppointmentTabScreenState extends ConsumerState<AppointmentTabScreen>
                         ],
                       ),
                     ),
+                    const SizedBox(height: 16),
                     Expanded(
                       child: TabBarView(
-                          controller: _tabController,
-                          children: const [
-                            Center(
-                              child: Text('Upcoming'),
-                            ),
-                            Center(
-                              child: Text('Past'),
-                            ),
-                            Center(
-                              child: Text('Cancelled'),
-                            ),
-                          ]),
+                        controller: _tabController,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Today',
+                                textAlign: TextAlign.start,
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              const SizedBox(height: 16),
+                              ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    height: 140,
+                                    padding: const EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: Colors.grey.shade100,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                1000,
+                                              ),
+                                              child: Image.asset(
+                                                'assets/icons/profile.png',
+                                                height: 50,
+                                                width: 50,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 16),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    getRandomName(),
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .titleMedium,
+                                                  ),
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    getRandomTitle(),
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyMedium,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const Icon(
+                                              Icons.arrow_forward,
+                                              color: colorText,
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 16),
+                                        Container(
+                                          height: 40,
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 16,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            color: Colors.green.shade100,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Icon(
+                                                Icons.timelapse_outlined,
+                                                color: Colors.green,
+                                              ),
+                                              const SizedBox(width: 16),
+                                              Text(
+                                                getRandomDay(),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium,
+                                              ),
+                                              const Expanded(
+                                                child: Text(
+                                                  '9:00AM - 10:00AM',
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(height: 16);
+                                },
+                                itemCount: 2,
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Past',
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              const SizedBox(height: 16),
+                              ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    height: 140,
+                                    padding: const EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: Colors.grey.shade100,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                1000,
+                                              ),
+                                              child: Image.asset(
+                                                'assets/icons/profile.png',
+                                                height: 50,
+                                                width: 50,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 16),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Dr. John Doe',
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .titleMedium,
+                                                  ),
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    'Researcher',
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyMedium,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const Icon(
+                                              Icons.arrow_forward,
+                                              color: colorText,
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 16),
+                                        Container(
+                                          height: 40,
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 16,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            color: Colors.green.shade100,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Icon(
+                                                Icons.timelapse_outlined,
+                                                color: Colors.green,
+                                              ),
+                                              const SizedBox(width: 16),
+                                              Text(
+                                                getRandomDay(),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium,
+                                              ),
+                                              const Expanded(
+                                                child: Text(
+                                                  '9:00AM - 10:00AM',
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(height: 16);
+                                },
+                                itemCount: 2,
+                              ),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Cancelled',
+                                textAlign: TextAlign.start,
+                                style: Theme.of(context).textTheme.titleMedium,
+                              ),
+                              const SizedBox(height: 16),
+                              ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (context, index) {
+                                  return Container(
+                                    height: 140,
+                                    padding: const EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: Colors.grey.shade100,
+                                    ),
+                                    child: Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                1000,
+                                              ),
+                                              child: Image.asset(
+                                                'assets/icons/profile.png',
+                                                height: 50,
+                                                width: 50,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            const SizedBox(width: 16),
+                                            Expanded(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    'Dr. John Doe',
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .titleMedium,
+                                                  ),
+                                                  const SizedBox(height: 4),
+                                                  Text(
+                                                    'Researcher',
+                                                    style: Theme.of(context)
+                                                        .textTheme
+                                                        .bodyMedium,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            const Icon(
+                                              Icons.arrow_forward,
+                                              color: colorText,
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(height: 16),
+                                        Container(
+                                          height: 40,
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 16,
+                                          ),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                            color: Colors.red.shade100,
+                                          ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Icon(
+                                                Icons.timelapse_outlined,
+                                                color: Colors.red,
+                                              ),
+                                              const SizedBox(width: 16),
+                                              Text(
+                                                getRandomDay(),
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodyMedium,
+                                              ),
+                                              const Expanded(
+                                                child: Text(
+                                                  '9:00AM - 10:00AM',
+                                                  textAlign: TextAlign.end,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(height: 16);
+                                },
+                                itemCount: 2,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
