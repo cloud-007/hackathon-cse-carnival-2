@@ -53,59 +53,61 @@ class _ServiceDetailScreenState extends ConsumerState<ServiceDetailScreen> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              service.title,
-              style: Theme.of(context).textTheme.titleLarge,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                Expanded(
-                  child: Row(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                service.title,
+                style: Theme.of(context).textTheme.titleLarge,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          radius: 24,
+                          backgroundImage:
+                              NetworkImage(service.user.picture ?? ''),
+                        ),
+                        const SizedBox(width: 16),
+                        Text(
+                          service.user.lastName,
+                          style: Theme.of(context).textTheme.titleMedium,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                  Row(
                     children: [
-                      CircleAvatar(
-                        radius: 24,
-                        backgroundImage:
-                            NetworkImage(service.user.picture ?? ''),
+                      const Icon(
+                        Icons.star,
+                        color: Colors.yellow,
                       ),
-                      const SizedBox(width: 16),
+                      const SizedBox(width: 4),
                       Text(
-                        service.user.lastName,
+                        '${service.rating.toString()}/5.0',
                         style: Theme.of(context).textTheme.titleMedium,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.star,
-                      color: Colors.yellow,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '${service.rating.toString()}/5.0',
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Text(
-              service.description,
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ],
+                ],
+              ),
+              const SizedBox(height: 16),
+              Text(
+                service.description,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(

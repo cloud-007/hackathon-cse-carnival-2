@@ -1,3 +1,4 @@
+import 'package:reachout/domain/model/chat_iitem.dart';
 import 'package:reachout/domain/model/consultation_service.dart';
 import 'package:reachout/domain/model/featured_card.dart';
 

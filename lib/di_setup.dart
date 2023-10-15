@@ -27,6 +27,8 @@ import 'package:reachout/domain/usecase/account/get_user_info_use_case.dart';
 import 'package:reachout/domain/usecase/account/google_sign_in_use_case.dart';
 import 'package:reachout/domain/usecase/account/sign_out_use_case.dart';
 import 'package:reachout/domain/usecase/chat/fetch_chat_list_use_case.dart';
+import 'package:reachout/domain/usecase/chat/fetch_chat_use_case.dart';
+import 'package:reachout/domain/usecase/chat/send_message_use_case.dart';
 import 'package:reachout/domain/usecase/consultation/get_consultation_service_use_case.dart';
 import 'package:reachout/domain/usecase/consultation/get_featured_section_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -110,6 +112,14 @@ Future<void> setup() async {
 
   getIt.registerLazySingleton(
     () => FetchChatListUseCase(chatRepository: getIt()),
+  );
+
+  getIt.registerLazySingleton(
+    () => FetchChatDetailUseCase(chatRepository: getIt()),
+  );
+
+  getIt.registerLazySingleton(
+    () => SendMessageUseCase(chatRepository: getIt()),
   );
   //endregion
   //region:: api
