@@ -1,14 +1,15 @@
 # Reachout
 
-A Flutter application built with Clean Architecture developed during a 24-hour [Hackathon](https://github.com/sayedalmahdi/cse-carnival-chapter-2-2023).
+A Flutter application built with Clean Architecture, developed during a 24-hour [Hackathon](https://github.com/sayedalmahdi/cse-carnival-chapter-2-2023).
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
-- [Technologies Used](#technologies-used)
+
 
 ## Introduction
 
@@ -26,7 +27,7 @@ This project is a Flutter application designed to provide users with a seamless 
 - **Flutter**: UI toolkit for building natively compiled applications.
 - **Django**: High-level Python web framework for backend services.
 - **Riverpod**: State management solution for Flutter.
-- **Dart**: A programming language for Flutter development.
+- **Dart**: Programming language for Flutter development.
 
 ## Getting Started
 
