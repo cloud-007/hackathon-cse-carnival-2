@@ -5,6 +5,7 @@
 # Flutter/Dart/Pub related
 **/doc/api/
 .dart_tool/
+.idea/
 .flutter-plugins
 .flutter-plugins-dependencies
 .fvm/
@@ -302,3 +303,4 @@ hs_err_pid*
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,androidstudio,visualstudiocode,flutter
+
